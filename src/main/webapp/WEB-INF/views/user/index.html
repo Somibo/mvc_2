@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<!-- Перебор всех пользователей и вывод их данных -->
+<div th:each="user : ${user}">
+    <p>
+        <a th:href="@{/user/show(id=${user.getId()})}" th:text="${user.getName() + ', ' + user.getAge()}">User</a>
+        <!-- Пример: <a href="/user/show?id=1">John Doe, 30</a> -->
+    </p>
+</div>
+
+<br/>
+<hr/>
+
+<!-- Ссылка на создание нового пользователя -->
+<a href="/user/new">Create new user</a>
+
+</body>
+</html>
